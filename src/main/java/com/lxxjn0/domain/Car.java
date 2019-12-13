@@ -1,10 +1,10 @@
 /*
- * @(#)Car.java     1.0 2019.12.10
+ * @(#)Car.java     1.1 2019.12.13
  *
  * Copyright (c) 2019 lxxjn0.
  */
 
-package domain;
+package com.lxxjn0.domain;
 
 import java.util.Random;
 
@@ -12,7 +12,7 @@ import java.util.Random;
  * Car 클래스
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 1.0 2019.12.10
+ * @version 1.1 2019.12.13
  */
 public class Car {
 	/**

@@ -1,10 +1,10 @@
 /*
- * @(#)RacingGame.java     1.2 2019.12.10
+ * @(#)RacingGame.java     1.3 2019.12.13
  *
  * Copyright (c) 2019 lxxjn0.
  */
 
-package domain;
+package com.lxxjn0.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * 사용자로부터 자동차의 이름을 입력받고 게임을 진행 후 우승자를 출력하는 전반적인 진행을 담당하는 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 1.2 2019.12.10
+ * @version 1.3 2019.12.13
  */
 public class RacingGame {
 	/**

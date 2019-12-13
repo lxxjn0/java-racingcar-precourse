@@ -1,10 +1,10 @@
 /*
- * @(#)User.java     0.2 2019.12.10
+ * @(#)User.java     0.3 2019.12.13
  *
  * Copyright (c) 2019 lxxjn0.
  */
 
-package domain;
+package com.lxxjn0.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  * 사용자로부터 오는 입력과 관련된 모든 기능을 담당하는 User 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.2 2019.12.10
+ * @version 0.3 2019.12.13
  */
 public class User {
 	/**

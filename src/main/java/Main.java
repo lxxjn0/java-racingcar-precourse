@@ -1,16 +1,16 @@
 /*
- * @(#)Main.java     0.2 2019.12.09
+ * @(#)Main.java     0.3 2019.12.13
  *
  * Copyright (c) 2019 lxxjn0.
  */
 
-import domain.RacingGame;
+import com.lxxjn0.domain.RacingGame;
 
 /**
  * 게임 시작을 위한 Main 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.2 2019.12.09
+ * @version 0.3 2019.12.13
  */
 public class Main {
 	/**
