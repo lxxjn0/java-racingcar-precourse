@@ -164,3 +164,34 @@
      - 사용자가 입력하는 기능을 수행하는 User 클래스 추가(분리).
 
      - User 클래스 추가에 따른 RacingGame 클래스의 메소드 일부 수정(불필요한 인스턴스 변수 제거).
+
+<br>
+
+## 추가 리펙토링 진행 - 클래스 분리 연습
+
+> 우아한 형제들 기술 블로그의 [생각하라, 객체지향처럼](http://woowabros.github.io/study/2016/07/07/think_object_oriented.html) 참고
+>
+> [객체 지향 설계 원칙](https://gmlwjd9405.github.io/2018/07/05/oop-solid.html) 참고
+
+<br>
+
+- 객체 지향 설계 이미지
+
+  ![객체 지향 설계 이미지](/images/domain_image.png "객체 지향 설계 이미지")
+
+- 클래스 분류 진행
+
+  - input 타입
+
+  - Output 타입
+
+  - Game Manager 타입
+
+  - Preprocessor 타입
+
+  - Validator 타입
+
+  - Car 타입
+
+  - RacingGame 타입
+
