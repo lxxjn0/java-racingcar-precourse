@@ -1,18 +1,16 @@
 /*
- * @(#)Output.java		0.2 2019.12.14
+ * @(#)Output.java		0.3 2019.12.14
  *
  * Copyright (c) 2019 lxxjn0.
  */
 
 package com.lxxjn0.ui;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
 /**
  * 출력과 관련된 기능을 담당하는 Output 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.2 2019.12.14
+ * @version 0.3 2019.12.14
  */
 public class Output {
 	/**
@@ -83,24 +81,31 @@ public class Output {
 	}
 
 	/**
+	 * 재입력 요청 메시지를 출력하는 메소드.
+	 */
+	public void printRequestReEnter() {
+		System.out.println(RE_ENTER_MESSAGE);
+	}
+
+	/**
 	 * 자동차 이름의 길이에 오류가 존재한다는 메시지를 출력하는 메소드.
 	 */
 	public void printInputLengthError() {
-		System.out.println(CAR_NAMES_LENGTH_ERROR_MESSAGE + RE_ENTER_MESSAGE);
+		System.out.print(CAR_NAMES_LENGTH_ERROR_MESSAGE);
 	}
 
 	/**
 	 * 자동차 이름의 형식에 오류가 존재한다는 메시지를 출력하는 메소드.
 	 */
 	public void printInputFormatError() {
-		System.out.println(CAR_NAMES_FORMAT_ERROR_MESSAGE + RE_ENTER_MESSAGE);
+		System.out.print(CAR_NAMES_FORMAT_ERROR_MESSAGE);
 	}
 
 	/**
 	 * 자동차 이름의 중복 오류가 존재한다는 메시지를 출력하는 메소드.
 	 */
 	public void printInputDuplicateError() {
-		System.out.println(CAR_NAMES_DUPLICATE_ERROR_MESSAGE + RE_ENTER_MESSAGE);
+		System.out.print(CAR_NAMES_DUPLICATE_ERROR_MESSAGE);
 	}
 
 	/**
@@ -114,7 +119,7 @@ public class Output {
 	 * 시도 횟수의 입력에 오류가 존재한다는 메시지를 출력하는 메소드.
 	 */
 	public void printAttemptNumberInputError() {
-		System.out.println(ATTEMPT_NUMBER_ERROR_MESSAGE + RE_ENTER_MESSAGE);
+		System.out.print(ATTEMPT_NUMBER_ERROR_MESSAGE);
 	}
 
 	/**
@@ -122,7 +127,7 @@ public class Output {
 	 * @param LapNumber lap 번호.
 	 */
 	public void printNthLapMoveResult(int LapNumber) {
-		System.out.println(NEW_LINE + LapNumber + NTH_LAP_MOVE_RESULT_MESSAGE);
+		System.out.println(NEW_LINE + (LapNumber + 1) + NTH_LAP_MOVE_RESULT_MESSAGE);
 	}
 
 	/**

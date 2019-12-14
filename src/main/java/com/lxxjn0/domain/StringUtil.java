@@ -1,5 +1,5 @@
 /*
- * @(#)StringUtil.java		0.2 2019.12.14
+ * @(#)StringUtil.java		0.3 2019.12.14
  *
  * Copyright (c) 2019 lxxjn0.
  */
@@ -13,7 +13,7 @@ import java.util.List;
  * 문자열을 다루는 여러 메소드들을 구현한 StringUtil 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.2 2019.12.14
+ * @version 0.32019.12.14
  */
 public class StringUtil {
 	/**
@@ -32,7 +32,7 @@ public class StringUtil {
 	 * @param userInput 입력받은 자동차 이름 문자열.
 	 * @return 쉼표(, )로 구분된 자동차 이름들의 문자열 List.
 	 */
-	public List<String> splitCarNames(String userInput) {
+	public static List<String> splitCarNames(String userInput) {
 		return Arrays.asList(userInput.split(COMMA_DELIMITER));
 	}
 
@@ -40,13 +40,11 @@ public class StringUtil {
 	 * 자동차 이름들의 불필요한 공백들을 제거하여 반환하는 메소드.
 	 *
 	 * @param carNames 자동차 이름들이 저장된 List.
-	 * @return 자동차 이름에서 앞, 뒤 공백을 제거한 List.
 	 */
-	public List<String> trimCarNames(List<String> carNames) {
+	public static void trimCarNames(List<String> carNames) {
 		for (int i = 0; i < carNames.size(); i++) {
 			carNames.set(i, carNames.get(i).trim());
 		}
-		return carNames;
 	}
 
 	/**
@@ -55,12 +53,21 @@ public class StringUtil {
 	 * @param position 해당 자동차의 현재 위치.
 	 * @return 자동차의 위치만큼 moving bar로 변환된 문자열.
 	 */
-	public String convertPositionToMovingBar(int position) {
+	public static String convertPositionToMovingBar(int position) {
 		StringBuilder movingPosition = new StringBuilder();
 
 		for (int i = 0; i < position; i++) {
 			movingPosition.append(MOVING_BAR);
 		}
 		return movingPosition.toString();
+	}
+
+	/**
+	 * 우승한 자동차들의 이름을 하나의 문자열로 합치는 메소드.
+	 *
+	 * @return 우승한 자동차들의 이름이 하나로 합쳐진 문자열을 반환.
+	 */
+	public static String joinWinnerNames(List<String> winners) {
+		return String.join(COMMA_DELIMITER, winners);
 	}
 }
