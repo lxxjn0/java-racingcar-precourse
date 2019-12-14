@@ -181,13 +181,13 @@
 
 - 클래스 분류 진행
 
-  - input 타입
+  - Input 타입
 
   - Output 타입
 
   - Game Manager 타입
 
-  - Preprocessor 타입
+  - ~~Preprocessor 타입~~ - StringUtil 타입으로 명명 수정
 
   - Validator 타입
 
