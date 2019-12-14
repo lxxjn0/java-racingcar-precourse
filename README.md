@@ -185,7 +185,7 @@
 
   - Output 타입
 
-  - Game Manager 타입
+  - GameManager 타입
 
   - ~~Preprocessor 타입~~ - StringUtil 타입으로 명명 수정
 
@@ -195,3 +195,12 @@
 
   - RacingGame 타입
 
+- 전체 코드 리펙토링 완료
+
+  - precourse week 1 숫자 야구 게임을 클래스 분리 리펙토링 할 때보다 더 깔끔하게 진행 완료.
+
+  - 비즈니스 로직과 UI 로직의 분리 연습.
+
+  - getter 사용을 메시지를 보내는 형식으로 수정 연습.
+
+  - 문자열을 다루는 클래스를 따로 뽑는 연습.
