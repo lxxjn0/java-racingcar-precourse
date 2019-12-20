@@ -1,153 +1,77 @@
 /*
- * @(#)Output.java		0.3 2019.12.14
+ * @(#)Output.java		0.4 2019.12.20
  *
  * Copyright (c) 2019 lxxjn0.
  */
 
 package com.lxxjn0.ui;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import com.lxxjn0.domain.Car;
+import com.lxxjn0.domain.RaceResult;
+import com.lxxjn0.domain.RaceStatus;
+
 /**
  * 출력과 관련된 기능을 담당하는 Output 클래스.
  *
  * @author JUNYOUNG LEE (lxxjn0)
- * @version 0.3 2019.12.14
+ * @version 0.4 2019.12.20
  */
 public class Output {
-	/**
-	 * 자동차 이름을 입력받을 때 출력할 메시지 상수.
-	 */
 	private static final String CAR_NAMES_INPUT_REQUEST_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-
-	/**
-	 * 자동차 이름의 길이에 오류가 존재할 경우 출력할 메시지 상수.
-	 */
-	private static final String CAR_NAMES_LENGTH_ERROR_MESSAGE = "경주할 자동차 이름은 1자 이상, 5자 이하만 가능합니다. ";
-
-	/**
-	 * 자동차 이름의 형식에 오류가 존재할 경우 출력할 메시지 상수.
-	 */
-	private static final String CAR_NAMES_FORMAT_ERROR_MESSAGE = "경주할 자동차 이름은 공백을 제외한 영문자와 숫자의 조합으로만 가능합니다. ";
-
-	/**
-	 * 자동차 이름에 중복이 존재할 경우 출력할 메시지 상수.
-	 */
-	private static final String CAR_NAMES_DUPLICATE_ERROR_MESSAGE = "중복된 자동차 이름이 존재합니다. ";
-
-	/**
-	 * 시도 횟수를 입력받을 때 출력할 메시지 상수.
-	 */
 	private static final String ATTEMPT_NUMBER_INPUT_REQUEST_MESSAGE = "시도할 회수는 몇 회인가요?";
-
-	/**
-	 * 시도 횟수를 입력할 때 오류가 발생할 경우 출력할 메시지 상수.
-	 */
-	private static final String ATTEMPT_NUMBER_ERROR_MESSAGE = "시도 횟수가 0보다 큰 정수가 아닙니다. ";
-
-	/**
-	 * 재 입력을 요청할 때 출력할 메시지 상수.
-	 */
-	private static final String RE_ENTER_MESSAGE = "다시 입력해주세요.";
-
-	/**
-	 * N번째 Lap 실행 결과를 보여줄 때 출력할 메시지 상수.
-	 */
-	private static final String NTH_LAP_MOVE_RESULT_MESSAGE = " Lap 실행 결과";
-
-	/**
-	 * 모든 자동차 위치가 출발선에 위치할 경우 출력할 메시지 상수.
-	 */
-	private static final String NO_WINNER_EXIST_MESSAGE = "자동차들이 모두 출발선에 위치해 있습니다. 우승자가 존재하지 않습니다.";
-
-	/**
-	 * 최종 우승자들을 출력할 메시지 상수.
-	 */
+	private static final String MOVE_RESULT_NOTICE_MESSAGE = "실행 결과";
 	private static final String WINNER_RESULT_MESSAGE = "가 최종 우승했습니다.";
+	public static final String NULL_EXCEPTION_MESSAGE = "입력이 NULL이 될 수 없습니다.";
+	public static final String ATTEMPT_NUMBER_FORMAT_EXCEPTION_MESSAGE = "숫자만 입력 가능합니다.";
+	public static final String VALID_ATTEMPT_NUMBER_EXCEPTION_MESSAGE = "0보다 큰 숫자를 입력해주세요.";
+	public static final String CAR_NAME_FORMAT_EXCEPTION_MESSAGE = "자동차 이름은 공백을 제외한 숫자와 영문자만 가능합니다.";
+	public static final String CAR_NAME_LENGTH_EXCEPTION_MESSAGE = "자동차 이름의 길이는 5글자까지만 가능합니다.";
+	public static final String CAR_NAME_DUPLICATE_EXCEPTION_MESSAGE = "중복된 자동차 이름이 존재합니다.";
+	public static final String VALID_POSITION_EXCEPTION_MESSAGE = "자동차의 위치가 유효하지 않습니다.";
 
-	/**
-	 * 이름에 대한 위치 결과를 구분하기 위한 문자열 상수.
-	 */
-	private static final String COLON = " : ";
-
-	/**
-	 * 개행을 위한 문자열 상수.
-	 */
-	private static final String NEW_LINE = "\n";
-
-	/**
-	 * 자동차 이름을 입력 요청 메시지를 출력하는 메소드.
-	 */
-	public void printRequestCarNamesInput() {
+	public static void printRequestCarNamesInput() {
 		System.out.println(CAR_NAMES_INPUT_REQUEST_MESSAGE);
 	}
 
-	/**
-	 * 재입력 요청 메시지를 출력하는 메소드.
-	 */
-	public void printRequestReEnter() {
-		System.out.println(RE_ENTER_MESSAGE);
+	public static void printExceptionMessage(String exceptionMessage) {
+		System.out.println(exceptionMessage);
 	}
 
-	/**
-	 * 자동차 이름의 길이에 오류가 존재한다는 메시지를 출력하는 메소드.
-	 */
-	public void printInputLengthError() {
-		System.out.print(CAR_NAMES_LENGTH_ERROR_MESSAGE);
-	}
-
-	/**
-	 * 자동차 이름의 형식에 오류가 존재한다는 메시지를 출력하는 메소드.
-	 */
-	public void printInputFormatError() {
-		System.out.print(CAR_NAMES_FORMAT_ERROR_MESSAGE);
-	}
-
-	/**
-	 * 자동차 이름의 중복 오류가 존재한다는 메시지를 출력하는 메소드.
-	 */
-	public void printInputDuplicateError() {
-		System.out.print(CAR_NAMES_DUPLICATE_ERROR_MESSAGE);
-	}
-
-	/**
-	 * 시도 횟수 입력 요청 메시지를 출력하는 메소드.
-	 */
-	public void printRequestAttemptNumberInput() {
+	public static void printRequestAttemptNumberInput() {
 		System.out.println(ATTEMPT_NUMBER_INPUT_REQUEST_MESSAGE);
 	}
 
-	/**
-	 * 시도 횟수의 입력에 오류가 존재한다는 메시지를 출력하는 메소드.
-	 */
-	public void printAttemptNumberInputError() {
-		System.out.print(ATTEMPT_NUMBER_ERROR_MESSAGE);
+	public static void printRaceResult(RaceResult raceResult) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(MOVE_RESULT_NOTICE_MESSAGE).append('\n');
+
+		raceResult.getRaceResult().forEach(raceStatus -> {
+				printCurrentStatus(raceStatus, sb);
+			}
+		);
+		System.out.println(sb.toString());
 	}
 
-	/**
-	 * N번째 시도(lap)의 결과 메시지를 출력하는 메소드.
-	 * @param LapNumber lap 번호.
-	 */
-	public void printNthLapMoveResult(int LapNumber) {
-		System.out.println(NEW_LINE + (LapNumber + 1) + NTH_LAP_MOVE_RESULT_MESSAGE);
+	public static void printCurrentStatus(RaceStatus raceStatus, StringBuilder sb) {
+		raceStatus.getCurrentStatus().forEach(car -> {
+			sb.append(car.getName())
+				.append(" : ")
+				.append(Stream.generate(() -> "-")
+					.limit(car.getPosition())
+					.collect(Collectors.joining()))
+				.append("\n");
+		});
+		sb.append("\n");
 	}
 
-	/**
-	 * 각 자동차 별로 이동 결과를 출력하는 메소드.
-	 *
-	 * @param carName 이동 결과를 출력할 자동차의 이름.
-	 * @param moveBar 해당 자동차의 이동 결과.
-	 */
-	public void printCarMoveResult(String carName, String moveBar) {
-		System.out.println(carName + COLON + moveBar);
-	}
-
-	/**
-	 * 우승자가 존재하지 않는다는 메시지를 출력하는 메소드.
-	 */
-	public void printNoWinnerExist() {
-		System.out.println(NEW_LINE + NO_WINNER_EXIST_MESSAGE);
-	}
-
-	public void printWinnerResult(String winners) {
-		System.out.println(NEW_LINE + winners + WINNER_RESULT_MESSAGE);
+	public static void printRaceWinner(RaceResult raceResult) {
+		String winners = raceResult.getWinner()
+			.stream()
+			.map(Car::getName)
+			.collect(Collectors.joining(", "));
+		System.out.println(winners + WINNER_RESULT_MESSAGE);
 	}
 }

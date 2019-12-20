@@ -4,7 +4,7 @@
  * Copyright (c) 2019 lxxjn0.
  */
 
-import com.lxxjn0.domain.GameManager;
+import com.lxxjn0.GameManager;
 
 /**
  * 게임 시작을 위한 Main 클래스.
